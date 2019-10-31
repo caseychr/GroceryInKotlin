@@ -49,7 +49,7 @@ class GroceryItemFragment : Fragment() {
         add_new.setOnClickListener {
             launch(UI) {
                 Log.i("GGG", "GGG")
-                DataManager.getInstance(activity!!.baseContext).insert(mGroceryItem)
+                DataManager.getInstance(activity!!.baseContext).insert(mockGrocery())
                 Log.i("GGG2", "GGG2")
             }
             activity!!.supportFragmentManager.beginTransaction().add(R.id.list_fragment_container,
@@ -59,7 +59,8 @@ class GroceryItemFragment : Fragment() {
     }
 
     private fun mockGrocery(): GroceryItem {
-        mGroceryItem = GroceryItem()
+        mGroceryItem = GroceryItem("beans", "$1.00", "Publix", false, false)
+        return mGroceryItem
     }
 
     companion object {
